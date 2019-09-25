@@ -33,16 +33,17 @@ public class AccessToken {
 			System.out.println("headers = " + request.getHeaders());
 			StringEntity input = null;
 			String grant_type = "client_credentials"; 
-			try {    			
-				input = new StringEntity("grant_type=" + grant_type); 
-				HttpPost httpPost = new HttpPost(BASE_URI + "/oauth/token");
-				httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
+// 			Not needed:
+// 			try {    			
+// 				input = new StringEntity("grant_type=" + grant_type); 
+// 				HttpPost httpPost = new HttpPost(BASE_URI + "/oauth/token");
+// 				httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded"); 
 
-				    httpPost.setEntity(input);    
-				 } 
-				 catch (UnsupportedEncodingException e) {    
-				        e.printStackTrace();    
-				   }
+// 				    httpPost.setEntity(input);    
+// 				 } 
+// 				 catch (UnsupportedEncodingException e) {    
+// 				        e.printStackTrace();    
+// 				   }
 			
 			String token = client.accessToken(request, OAuth.HttpMethod.POST, OAuthJSONAccessTokenResponse.class)
 					.getAccessToken();
